@@ -1,6 +1,7 @@
 from cgi import test
 import numpy as np
 import csv
+import sklearn.model_selection as sm
 import torch
 import pandas as pd
 import os
@@ -13,11 +14,22 @@ import os
 # print(data_y)
 
 
-def tet(myName):
-    if myName == 'luan':
-        master = True
-    else :
-        master = False
-    print('jieguoshi :  ',master)
+# def tet(myName):
+#     if myName == 'luan':
+#         master = True
+#     else :
+#         master = False
+#     print('jieguoshi :  ',master)
 
-tet('luan')
+# tet('luan')
+
+x = np.arange(0, 28)
+# print(X_index)
+result = x.reshape(7,4)
+# print(reult)
+# print(reult.shape[0])
+
+split_index = np.arange(0,7)
+train_index, valid_index = sm.train_test_split(split_index, test_size=0.2, random_state=42)
+print(result[train_index])
+print(result[valid_index])
